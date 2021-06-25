@@ -1,0 +1,43 @@
+{% extends "home/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if meetings %}
+
+      {% for meeting in meetings %}
+        <section class="page-section clearfix">
+          <div class="container">
+            <div class="intro">
+              <img class=" col-7 intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{meeting.imagen}}" alt="">
+              <div class="col-4 intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4" >
+                  <span class="section-heading-lower">{{meeting.nombre}}</span>
+                  <span class="section-heading-upper">Fecha: {{meeting.fecha_hora}}</span>
+                  <span class="section-heading-upper">Temp Max: {{meeting.temp_max}} °</span>
+                </h2>
+               
+              </div>
+            </div>
+          </div>
+        </section>
+
+      {% endfor %}
+
+    {% else %}
+        <section class="page-section clearfix">
+          <div class="container">
+            <div class="intro">
+              <div class=" text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4" >
+                  <span class="section-heading-upper">No hay eventos para mostrar</span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    {% endif %}
+
+{% endblock %}
